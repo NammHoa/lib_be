@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "355152033044",
+    "project_id": "thuvienjack",
+    "storage_bucket": "thuvienjack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355152033044:android:a3c2341baf176a45643e01",
+        "android_client_info": {
+          "package_name": "com.example.thuvienjack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpgCvzOurK2my9cTm0a94qUb_DwLCl2fA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
