@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="20dp"
+    tools:context="Author.HomeAuthorUserActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp"
+
+        android:id="@+id/btnBackHomeUserAuthor"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_toStartOf="@+id/searchAuthorUser"
+        android:src="@drawable/arrow_ic" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchAuthorUser"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/orange_border"
+        android:focusable="false"
+        app:iconifiedByDefault="false"
+        app:queryHint="Tìm kiếm..."
+        app:searchHintIcon="@null"
+        app:searchIcon="@drawable/ic_search" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAuthorUser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchAuthorUser"
+        android:layout_marginTop="0dp"
+        android:scrollbars="vertical" />
+
+</RelativeLayout>

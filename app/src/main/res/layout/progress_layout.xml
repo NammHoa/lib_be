@@ -7,14 +7,14 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:indeterminateTint="@color/orange"/>
+    android:indeterminateTint="@color/orange2"/>
     <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="4"
         android:text="Loading..."
         android:textSize="18sp"
-        android:textColor="@color/orange"
+        android:textColor="@color/orange2"
         android:gravity="start|center_vertical"/>
 
 </LinearLayout>

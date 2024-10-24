@@ -9,9 +9,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 import com.github.clans.fab.FloatingActionButton;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,7 +21,7 @@ import com.google.firebase.storage.StorageReference;
 public class DetailBookActivity extends AppCompatActivity {
 
     TextView detailTitle, detailDesc, detailAuthor, detailCate;
-    ImageView detailImage;
+    ImageView detailImage, backDetail;
     FloatingActionButton deleteButton, editButton;
     String key = "";
     String imageUrl = "";
@@ -40,6 +38,16 @@ public class DetailBookActivity extends AppCompatActivity {
         detailImage =findViewById(R.id.detailImage);
         deleteButton = findViewById(R.id.btnDelete);
         editButton = findViewById(R.id.btnEdit);
+        backDetail = findViewById(R.id.backDetail);
+
+
+        backDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailBookActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
@@ -50,6 +58,11 @@ public class DetailBookActivity extends AppCompatActivity {
             key = bundle.getString("Key");
             imageUrl = bundle.getString("Image");
             Glide.with(this).load(bundle.getString("Image")).into(detailImage);
+            if (imageUrl != null && !imageUrl.isEmpty()) {
+                Glide.with(this).load(imageUrl).into(detailImage);
+            } else {
+                Toast.makeText(this, "Hình ảnh bị thiếu", Toast.LENGTH_SHORT).show();
+            }
         }
 
 

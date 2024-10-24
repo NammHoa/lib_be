@@ -13,6 +13,58 @@
         android:theme="@style/Theme.ThuVienJack"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityF"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="Author.HomeAuthorUserActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name="Author.DetailAuthorUser"
+            android:exported="false" />
+        <activity
+            android:name="Author.UpdateAuthorActivity"
+            android:exported="false" />
+        <activity
+            android:name="Author.DetailAuthorActivity"
+            android:exported="false" />
+        <activity
+            android:name="Author.HomeAuthorActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name="Author.UploadAuthorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ListBorrowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailBookUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductBookUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".UpdateBookActivity"
             android:exported="false" />
         <activity
@@ -26,13 +78,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

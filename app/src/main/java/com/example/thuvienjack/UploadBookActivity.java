@@ -37,7 +37,7 @@ import java.util.Calendar;
 
 public class UploadBookActivity extends AppCompatActivity {
 
-    ImageView uploadImage;
+    ImageView uploadImage, backArrowUpload;
     Button saveButton;
     EditText uploadTopic, uploadDesc, uploadAuthor, uploadCate;
     String imageURL;
@@ -54,7 +54,16 @@ public class UploadBookActivity extends AppCompatActivity {
         uploadAuthor = findViewById(R.id.uploadAuthor);
         uploadCate = findViewById(R.id.uploadCate);
         saveButton = findViewById(R.id.btnSave);
+        backArrowUpload = findViewById(R.id.backArrowUpload);
 
+
+        backArrowUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UploadBookActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -89,19 +98,24 @@ public class UploadBookActivity extends AppCompatActivity {
         });
     }
     public void saveData(){
+        if (uri == null) {
+            Toast.makeText(this, "Chưa chọn ảnh!", Toast.LENGTH_SHORT).show();
+            return; // Dừng lại nếu uri là null
+        }
+
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Android Images")
                 .child(uri.getLastPathSegment());
+
         AlertDialog.Builder builder = new AlertDialog.Builder(UploadBookActivity.this);
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();
         dialog.show();
 
-
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Task <Uri> uriTask  = taskSnapshot.getStorage().getDownloadUrl();
+                Task<Uri> uriTask  = taskSnapshot.getStorage().getDownloadUrl();
                 while (!uriTask.isComplete());
                 Uri urlImage = uriTask.getResult();
                 imageURL = urlImage.toString();
@@ -115,6 +129,7 @@ public class UploadBookActivity extends AppCompatActivity {
             }
         });
     }
+
     public  void uploadData(){
         String title = uploadTopic.getText().toString();
         String desc = uploadDesc.getText().toString();

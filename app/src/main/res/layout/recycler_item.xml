@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/recCard"
     android:layout_margin="3dp"
-
     android:orientation="vertical"
     app:cardCornerRadius="30dp"
     app:cardElevation="10dp">
@@ -62,18 +61,18 @@
                 android:layout_height="wrap_content"
 
                 android:text="Thể loại: "
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recCate"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/recLang"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@+id/recImage"
                 android:text="Thể loại"
-                android:textColor="@color/orange"
+                android:textColor="@color/orange2"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -106,19 +105,19 @@
                 android:layout_height="wrap_content"
 
                 android:text="Tác giả:"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recAuthor"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/recDesc"
                 android:layout_marginStart="5dp"
 
                 android:layout_toEndOf="@+id/recImage"
                 android:text="Tên tác giả"
-                android:textColor="@color/orange"
+                android:textColor="@color/orange2"
                 android:textSize="14sp" />
 
 

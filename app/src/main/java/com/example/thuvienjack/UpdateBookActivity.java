@@ -34,7 +34,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class UpdateBookActivity extends AppCompatActivity {
-    ImageView updateImage;
+    ImageView updateImage, backArrowUpdate;
     Button updateButton;
     EditText updateDesc, updateTitle, updateAuthor, updateCate;
     String title, desc, author, cate;
@@ -55,6 +55,16 @@ public class UpdateBookActivity extends AppCompatActivity {
         updateAuthor = findViewById(R.id.updateAuthor);
         updateCate = findViewById(R.id.updateCate);
         updateButton = findViewById(R.id.btnUpdate);
+        backArrowUpdate = findViewById(R.id.backArrowUpdate);
+
+        backArrowUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdateBookActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {

@@ -1,0 +1,59 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductBookUserActivity">
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp"
+        android:padding="3dp"
+        android:id="@+id/btnBackHome"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_toStartOf="@+id/searchProduct"
+        android:src="@drawable/arrow_ic" />
+
+    <ImageView
+        android:id="@+id/IVList"
+        android:layout_width="38dp"
+        android:layout_height="43dp"
+        android:src="@drawable/list_ic"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="11dp" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchProduct"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/IVList"
+        android:background="@drawable/orange_border"
+        android:focusable="false"
+        app:iconifiedByDefault="false"
+        app:queryHint="Tìm kiếm"
+        app:searchHintIcon="@null"
+        app:searchIcon="@drawable/ic_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rycProduct"
+        android:layout_width="match_parent"
+        android:layout_height="730dp"
+        android:layout_below="@id/searchProduct"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="-1dp"
+        android:scrollbars="vertical" />
+
+</RelativeLayout>

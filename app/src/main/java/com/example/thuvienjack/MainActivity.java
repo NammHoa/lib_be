@@ -3,6 +3,7 @@ package com.example.thuvienjack;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     androidx.appcompat.widget.SearchView searchView;
     MyAdapterBook adapterBook;
+
+    ImageView btnBackHomeAdmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         searchView = findViewById(R.id.search);
         searchView.clearFocus();
+        btnBackHomeAdmin = findViewById(R.id.btnBackHomeAdmin);
 
+        btnBackHomeAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ProfileAdminActivity.class);
+                startActivity(intent);
+            }
+        });
         GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
@@ -104,13 +115,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void searchList(String text){
+    public void searchList(String text) {
         ArrayList<DataClass> searchList = new ArrayList<>();
-        for (DataClass dataClass: dataList){
-            if (dataClass.getDataTitle().toLowerCase().contains(text.toLowerCase())){
+        for (DataClass dataClass : dataList) {
+            if (dataClass.getDataTitle().toLowerCase().contains(text.toLowerCase()) ||
+                    dataClass.getDataAuthor().toLowerCase().contains(text.toLowerCase()) ||
+                    dataClass.getDataCate().toLowerCase().contains(text.toLowerCase())) {
+
                 searchList.add(dataClass);
             }
         }
         adapterBook.searchDataList(searchList);
     }
+
 }
